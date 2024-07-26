@@ -26,7 +26,7 @@ public sealed class Customer : AggregateRoot
     {
         Customer customer = new(firstName, lastName, email, passwordHash);
 
-        customer.RaiseDomainEvent(new );
+        customer.RaiseDomainEvent(new CustomerCreatedDomainEvent(customer.Id, customer.FirstName, customer.LastName, customer.Email));
 
         return customer;
     }
