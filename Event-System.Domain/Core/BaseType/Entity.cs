@@ -6,31 +6,23 @@ namespace Event_System.Domain.Core.BaseType;
 /// <summary>
 /// Represents a base class for all entities in the domain.
 /// </summary>
-public abstract class Entity : IEquatable<Entity?>, IEntity, IAuditable, ISoftDeletable
+public abstract class Entity : IEquatable<Entity?>, IEntity
 {
     /// <summary>
-    /// Initializes a new instance of the <see cref="Entity"/> class with the specified identifier.
+    /// 
     /// </summary>
-    /// <param name="id">The unique identifier for the entity.</param>
+    /// <param name="id"></param>
     protected Entity(Guid id) => Id = id;
 
-    // Parameterless constructor for EF Core
+    /// <summary>
+    /// 
+    /// </summary>
     protected Entity() { }
 
     /// <summary>
-    /// Gets the unique identifier for the entity.
+    /// 
     /// </summary>
     public Guid Id { get; }
-
-    public DateTime CreatedAt { get; }
-
-    public DateTime? LastModifiedAt { get; private set; } 
-
-
-    public bool IsDeleted => throw new NotImplementedException();
-
-    public DateTime? DeletedAt => throw new NotImplementedException();
-
   
     /// <inheritdoc/>
     public override bool Equals(object? obj)
@@ -49,16 +41,6 @@ public abstract class Entity : IEquatable<Entity?>, IEntity, IAuditable, ISoftDe
     public override int GetHashCode()
     {
         return HashCode.Combine(Id);
-    }
-
-    public void SoftDelete()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Restore()
-    {
-        throw new NotImplementedException();
     }
 
     /// <summary>

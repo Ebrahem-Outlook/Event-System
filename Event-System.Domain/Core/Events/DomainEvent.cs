@@ -11,7 +11,6 @@ public abstract record DomainEvent : IDomainEvent
     /// </summary>
     public DomainEvent() : this(Guid.NewGuid(), DateTime.UtcNow)
     {
-
     }
 
     /// <summary>
