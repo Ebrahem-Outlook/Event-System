@@ -1,10 +1,11 @@
 ﻿using Event_System.Application.Core.Abstractions.Data;
 using Event_System.Domain.Customers;
+using Event_System.Persistence.Repositories;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Event_System.Persistence.Caching;
 
-internal sealed class CachedCustomerRepository(IDbContext dbContext, IMemoryCache memoryCache) : ICustomerRepository
+internal sealed class CachedCustomerRepository(CustomerRepository decorated, IMemoryCache memoryCache) : ICustomerRepository
 {
     public Task AddAsync(Customer product, CancellationToken cancellationToken = default)
     {

@@ -18,4 +18,24 @@
     <ProjectReference Include="..\Event-System.Domain\Event-System.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Customers\Commands\CreateCustomer\" />
+    <Folder Include="Customers\Commands\DeleteCustomer\" />
+    <Folder Include="Customers\Commands\UpdateCustomer\" />
+    <Folder Include="Customers\Events\CustomerCreated\" />
+    <Folder Include="Customers\Events\CustomerUpdated\" />
+    <Folder Include="Customers\Events\CustomerDeleted\" />
+    <Folder Include="Customers\Queries\GetAll\" />
+    <Folder Include="Customers\Queries\GetById\" />
+    <Folder Include="Customers\Queries\GetByName\" />
+    <Folder Include="Products\Commands\DeleteProduct\" />
+    <Folder Include="Products\Commands\UpdateProduct\" />
+    <Folder Include="Products\Events\ProductDeleted\" />
+    <Folder Include="Products\Events\ProductUpdated\" />
+    <Folder Include="Products\Events\ProductCreated\" />
+    <Folder Include="Products\Queries\GetAll\" />
+    <Folder Include="Products\Queries\GetById\" />
+    <Folder Include="Products\Queries\GetByName\" />
+  </ItemGroup>
+
 </Project>

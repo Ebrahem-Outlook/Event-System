@@ -16,14 +16,14 @@ public sealed class Product : AggregateRoot, IAuditable, ISoftDeletable
     /// <param name="price"></param>
     /// <param name="stock"></param>
     /// <param name="photos"></param>
-    public Product(Name name, Description description, Price price, Stock stock, List<Photo> photos)
+    public Product(Name name, Description description, Price price, Stock stock, List<string> items)
         : base(Guid.NewGuid())
     {
         Name = name;
         Description = description;
         Price = price;
         Stock = stock;
-        Photos = photos;
+        Items.AddRange(items);
     }
 
     /// <summary>
@@ -54,7 +54,7 @@ public sealed class Product : AggregateRoot, IAuditable, ISoftDeletable
     /// <summary>
     /// 
     /// </summary>
-    public List<Photo> Photos { get; private set; } = [];
+    public List<string> Items { get; private set; } = [];
 
     /// <inheritdoc />
     public DateTime CreatedAt { get; }
@@ -75,9 +75,9 @@ public sealed class Product : AggregateRoot, IAuditable, ISoftDeletable
     /// <param name="price"></param>
     /// <param name="stock"></param>
     /// <returns></returns>
-    public static Product Create(Name name, Description description, Price price, Stock stock, List<Photo> photos)
+    public static Product Create(Name name, Description description, Price price, Stock stock, List<string> items)
     {
-        Product product = new(name, description, price, stock, photos);
+        Product product = new(name, description, price, stock, items);
 
         // Raise DomainEvent....
 
